@@ -1,0 +1,59 @@
+<div class="login-page-main">
+  <div id="login-contect">
+    <div class="login-page">
+      <h1>login</h1>
+      <hr />
+      <div class="labelName">
+        <label>Enter your email : </label>
+        <mat-form-field appearance="fill">
+          <input
+            matInput
+            placeholder="email@example.com"
+            ([formControl])="(email)"
+            [(ngModel)]="user.email"
+            required
+          />
+          <mat-error *ngIf="email.invalid">{{ getErrorMessage() }}</mat-error>
+        </mat-form-field>
+      </div>
+      <hr />
+      <div class="labelName">
+        <label>Enter your password : </label>
+        <mat-form-field appearance="fill">
+          <input
+            matInput
+            placeholder="password"
+            type="password"
+            required
+            [(ngModel)]="user.password"
+          />
+        </mat-form-field>
+      </div>
+      <hr />
+      <span class="clients">
+        pick you client : <br /><br />
+        1. Admin <br /><br />
+        2. Company <br /><br />
+        3. Customer
+      </span>
+      <br />
+      <div class="labelName">
+        <label>Enter your client : </label>
+        <mat-form-field appearance="fill">
+          <input
+            matInput
+            placeholder="client"
+            type="text"
+            required
+            [(ngModel)]="user.clientType"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+   {{messaggeUser}}
+    <hr />
+    <button mat-raised-button color="primary" type="button" (click)="login()">
+      Login
+    </button>
+  </div>
+</div>

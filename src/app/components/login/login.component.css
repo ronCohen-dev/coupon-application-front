@@ -1,0 +1,22 @@
+.login-page-main {
+  background-color: rgb(83, 83, 216);
+  background-image: url("/assets/images/login.jpg");
+  height: 100%;
+  width: 100%;
+  font-style: italic;
+  
+}
+
+.login-page {
+  text-shadow: 2px 2px rgb(65, 65, 71);
+  font-size: 25px;
+}
+
+#login-contect {
+  width: fit-content;
+  position: relative;
+  text-align: center;
+  left: 40%;
+  top: 5%;
+  font-style: italic;
+}

@@ -1,0 +1,68 @@
+#contaner {
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  background-color: rgb(56, 59, 59);
+}
+
+#header {
+  font-size: 100px;
+  position: relative;
+  left: 500px;
+  top: 100px;
+  font-style: italic;
+  color: blueviolet;
+  text-shadow: 4px 4px silver;
+}
+
+#p-inDiv {
+  position: relative;
+  top: 300px;
+  left: 20px;
+  font-size: x-large;
+  font-style: italic;
+  color: cornflowerblue;
+}
+.shadow {
+  text-shadow: 2px 2px purple;
+}
+.img {
+  position: relative;
+  top: 250px;
+  right: 250px;
+  width: 500px;
+  height: 350px;
+}
+
+.fa-instagram {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  border-radius: 40px;
+  color: #fff;
+  font-size: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+  background: #d6249f;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.aboutUs {
+  position: absolute;
+  text-align: center;
+  color: #d6ac24;
+  text-shadow: 1px 1px #eb700b;
+  top: 50%;
+  right: 10%;
+  font-size: 17px;
+}

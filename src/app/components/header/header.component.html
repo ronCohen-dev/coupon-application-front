@@ -1,0 +1,13 @@
+<mat-toolbar style="background-color: rgb(154, 167, 156)">
+  <mat-toolbar-row>
+    <div>
+      <button mat-button>
+        <mat-icon style="font-size: xx-large" class="home">home</mat-icon>
+        <span class="home" (click)="gotoHome()">Home</span>
+      </button>
+      <button mat-button (click)="goToAboutUs()">About us</button>
+      <button mat-button (click)="gotoProfile()">My Activity</button>
+      <button mat-button (click)="logout()">logout</button>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

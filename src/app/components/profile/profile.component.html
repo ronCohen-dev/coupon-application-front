@@ -1,0 +1,1010 @@
+<div class="classMain">
+  <div class="header">
+    <div style="text-align: center; font-size: xx-large;"><h1 style="font-style: italic">admin activity</h1></div>
+    <br />
+  </div>
+  <div *ngIf="f.adminLogIn" class="Admin" >
+    <div class="Add_Company">
+      <h3 style="font-style: italic">Add Company</h3>
+      <label style="font-style: italic">Enter your email : </label>
+
+      <input
+        matInput
+        placeholder="email@example.com"
+        [(ngModel)]="company.email"
+      />
+      <br />
+      <label style="font-style: italic">Enter your password : </label>
+
+      <input
+        matInput
+        placeholder="password...123456"
+        type="password"
+        [(ngModel)]="company.password"
+      />
+
+      <br />
+      <label style="font-style: italic">Enter your name : </label>
+
+      <input matInput placeholder="name..." [(ngModel)]="company.name" />
+      <br>
+     <div class="viweToClient"> {{messageAdminAddCom}}</div>
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="addCompany()"
+        style="font-style: italic"
+      >
+        add company
+      </button>
+      <br />
+    </div>
+    <br />
+    <div class="delete_Company">
+      <h3 style="font-style: italic">delete Company</h3>
+      <label style="font-style: italic"
+        >Enter your company id to delete :
+      </label>
+      <input matInput placeholder="company id " [(ngModel)]="companyId" />
+      <br>
+      <div class="viweToClient"> {{messageAdminDeleteCom}}</div>
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="deleteCompany()"
+        style="font-style: italic"
+      >
+        delete company
+      </button>
+      <br />
+    </div>
+    <br />
+    <div class="one_Company">
+      <h3 style="font-style: italic">select one Company</h3>
+      <label style="font-style: italic">your selected company is : </label>
+      <input matInput placeholder="company id " [(ngModel)]="companyId" />
+      <br />
+      <table>
+        <caption>
+          <h3 style="font-style: italic">company</h3>
+        </caption>
+        <br>
+      <div class="viweToClient"> {{messageAdminGetOneCom}}</div>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="oneCompany">
+            <td>{{ oneCompany.id }}</td>
+            <td>{{ oneCompany.name }}</td>
+            <td>{{ oneCompany.email }}</td>
+            <td>{{ oneCompany.password }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="getOne()"
+        style="font-style: italic"
+      >
+        get one company
+      </button>
+    </div>
+    <br />
+    <div class="companies">
+      <h3 style="font-style: italic">all the companies</h3>
+      <label style="font-style: italic">The companies in the system : </label>
+      <br />
+      <div class="viweToClient"> {{messageAdminGetAllCom}}</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let company of companies">
+            <td>{{ company.id }}</td>
+            <td>{{ company.name }}</td>
+            <td>{{ company.email }}</td>
+            <td>{{ company.password }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="getAllCompanies()"
+        style="font-style: italic"
+      >
+        get all companies
+      </button>
+      <br />
+    </div>
+    <br />
+    <div class="update_Company">
+      <h3 style="font-style: italic">update Company</h3>
+      <label style="font-style: italic">Enter your email : </label>
+
+      <input
+        matInput
+        placeholder="email@example.com"
+        [(ngModel)]="company.email"
+      />
+      <br />
+      <label style="font-style: italic">Enter your password : </label>
+      <input
+        matInput
+        placeholder="password...123456"
+        type="password"
+        [(ngModel)]="company.password"
+      />
+      <br />
+      <label style="font-style: italic">Enter company id : </label>
+      <input matInput placeholder="company id " [(ngModel)]="companyId" />
+      <br />
+      <div class="viweToClient"> {{messageAdminUpdateCom}}</div>
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="updateCompany()"
+        style="font-style: italic"
+      >
+        update company
+      </button>
+      <br />
+    </div>
+    <br />
+    <div class="Add_Customer">
+      <h3 style="font-style: italic">Add Customer</h3>
+      <label style="font-style: italic">Enter your email : </label>
+
+      <input
+        matInput
+        placeholder="email@example.com"
+        [(ngModel)]="customer.email"
+      />
+      <br />
+      <label style="font-style: italic">Enter your password : </label>
+
+      <input
+        matInput
+        placeholder="password...123456"
+        type="password"
+        [(ngModel)]="customer.password"
+      />
+
+      <br />
+      <label style="font-style: italic">Enter your first name : </label>
+
+      <input
+        matInput
+        placeholder="first name"
+        [(ngModel)]="customer.firstName"
+      />
+      <br />
+
+      <label style="font-style: italic">Enter your last name : </label>
+
+      <input matInput placeholder="last name" [(ngModel)]="customer.lastName" />
+      <br />
+      <div class="viweToClient"> {{messageAdminAddCus}}</div>
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="addCustomer()"
+        style="font-style: italic"
+      >
+        add customer
+      </button>
+      <br />
+    </div>
+    <br />
+    <div class="delete_Customer">
+      <h3 style="font-style: italic">delete customer</h3>
+      <label style="font-style: italic"
+        >Enter your customer id to delete :
+      </label>
+      <input matInput placeholder="customer id " [(ngModel)]="customerId" />
+      <br>
+      <div class="viweToClient"> {{messageAdminDeleteCus}}</div>
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="deleteCustomer()"
+        style="font-style: italic"
+      >
+        delete customer
+      </button>
+      <br />
+
+      <!--  -->
+      <br />
+    </div>
+    <br />
+    <div class="one_Customer">
+      <h3 style="font-style: italic">select one customer</h3>
+      <label style="font-style: italic">your selected customer is : </label>
+      <input matInput placeholder="customer id " [(ngModel)]="customerId" />
+      <br>
+      <div class="viweToClient"> {{messageAdminGetOneCus}}</div>
+      <table>
+        <caption>
+          <h3 style="font-style: italic">customer</h3>
+        </caption>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>first_Name</th>
+            <th>last_Name</th>
+            <th>Email</th>
+            <th>Password</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="oneCustomer">
+            <td>{{ oneCustomer.id }}</td>
+            <td>{{ oneCustomer.firstName }}</td>
+            <td>{{ oneCustomer.lastName }}</td>
+            <td>{{ oneCustomer.email }}</td>
+            <td>{{ oneCustomer.password }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="getOneCustomer()"
+        style="font-style: italic"
+      >
+        get one customer
+      </button>
+      <br />
+    </div>
+    <br />
+    <div class="customers">
+      <h3 style="font-style: italic">all the customers</h3>
+      <label style="font-style: italic">The customers in the system : </label>
+      <br>
+      <div class="viweToClient"> {{messageAdminGetAllCus}}</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>first_Name</th>
+            <th>last_Name</th>
+            <th>Email</th>
+            <th>Password</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let customer of customers">
+            <td>{{ customer.id }}</td>
+            <td>{{ customer.firstName }}</td>
+            <td>{{ customer.lastName }}</td>
+            <td>{{ customer.email }}</td>
+            <td>{{ customer.password }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="getAllCustomers()"
+        style="font-style: italic"
+      >
+        get all customers
+      </button>
+      <br />
+    </div>
+    <br />
+    <div class="update_Customer">
+      <h3 style="font-style: italic">update customer</h3>
+      <label style="font-style: italic">Enter your email : </label>
+
+      <input
+        matInput
+        placeholder="email@example.com"
+        [(ngModel)]="customer.email"
+      />
+      <br />
+      <label style="font-style: italic">Enter your password : </label>
+      <input
+        matInput
+        placeholder="password...123456"
+        type="password"
+        [(ngModel)]="customer.password"
+      />
+      <br />
+      <label style="font-style: italic">Enter your first name : </label>
+      <input
+        matInput
+        placeholder="first name"
+        [(ngModel)]="customer.firstName"
+      />
+      <br />
+      <label style="font-style: italic">Enter your last name : </label>
+      <input matInput placeholder="last name" [(ngModel)]="customer.lastName" />
+      <br />
+      <label style="font-style: italic">Enter customer id : </label>
+      <input matInput placeholder="customer id " [(ngModel)]="customerId" />
+      <br>
+      <div class="viweToClient"> {{messageAdminUpdateCus}}</div>
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="updateCustomer()"
+        style="font-style: italic"
+      >
+        update customer
+      </button>
+      <br />
+    </div>
+    <br />
+  </div>
+  <br />
+  <div>
+    <div *ngIf="f.companyLogIn" class="company">
+      <div style="text-align: center; font-size: xx-large;"><h1 style="font-style: italic">company activity</h1></div>
+      <div class="add_coupon">
+        <h3 style="font-style: italic">Add Coupon</h3>
+        <label style="font-style: italic">Enter coupon title : </label>
+
+        <input matInput placeholder="title" [(ngModel)]="coupon.title" />
+        <br />
+        <label style="font-style: italic">Enter coupon description : </label>
+
+        <input
+          matInput
+          placeholder="description..."
+          [(ngModel)]="coupon.description"
+        />
+        <br />
+        <label style="font-style: italic">Enter coupon start date : </label>
+
+        <input
+          matInput
+          placeholder="start date"
+          type="date"
+          [(ngModel)]="coupon.startDate"
+        />
+        <br />
+        <label style="font-style: italic">Enter coupon end date : </label>
+
+        <input
+          matInput
+          placeholder="end date"
+          type="date"
+          [(ngModel)]="coupon.endDate"
+        />
+        <br />
+        <label style="font-style: italic">Enter coupon price : </label>
+
+        <input
+          matInput
+          placeholder="price..."
+          type="number"
+          [(ngModel)]="coupon.price"
+        />
+        <br />
+        <label label style="font-style: italic"> Enter coupon amount : </label>
+
+        <input
+          matInput
+          placeholder="amount..."
+          type="number"
+          [(ngModel)]="coupon.amount"
+        />
+        <br />
+        <label label style="font-style: italic">
+          Enter coupon category :
+        </label>
+
+        <input
+          matInput
+          placeholder="FOOD, ELECTRICITY, SPORT, HOTEL"
+          [(ngModel)]="coupon.categoryId"
+        />
+        <br />
+        <label label style="font-style: italic"> Enter coupon image : </label>
+
+        <input matInput placeholder="image" [(ngModel)]="coupon.image" />
+        <br>
+        <div class="viweToClient"> {{messageCompanyAddCoupon}}</div>
+        <hr />
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="addCoupon()"
+          style="font-style: italic"
+        >
+          add coupon
+        </button>
+        <br />
+      </div>
+      <br />
+      <div class="coupons_category">
+        <h3 style="font-style: italic">all the coupons by one category</h3>
+        <label style="font-style: italic">The coupons in the system : </label>  
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>title</th>
+              <th>description</th>
+              <th>startDate</th>
+              <th>endDate</th>
+              <th>price</th>
+              <th>amount</th>
+              <th>category</th>
+              <th>image</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let coupon of couponsCategory">
+              <td>{{ coupon.id }}</td>
+              <td>{{ coupon.title }}</td>
+              <td>{{ coupon.description }}</td>
+              <td>{{ coupon.startDate }}</td>
+              <td>{{ coupon.price }}</td>
+              <td>{{ coupon.amount }}</td>
+              <td>{{ coupon.categoryId }}</td>
+              <td>{{ coupon.image }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <div class="viweToClient">  {{ messageCategory }}</div>      
+        <label label style="font-style: italic">
+          Enter coupon category :
+        </label>
+        <input
+          matInput
+          placeholder="FOOD, ELECTRICITY, SPORT, HOTEL"
+          [(ngModel)]="couponCategory"
+        />
+        <hr />
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="getAllCouponsByCategory()"
+          style="font-style: italic"
+        >
+          get all coupons category
+        </button>
+        <br />
+      </div>
+      <br />
+      <div class="update_coupon">
+        <h3 style="font-style: italic">update Coupon</h3>
+        <label style="font-style: italic">Enter coupon title : </label>
+
+        <input matInput placeholder="title" [(ngModel)]="coupon.title" />
+        <br />
+        <label style="font-style: italic">Enter coupon description : </label>
+
+        <input
+          matInput
+          placeholder="description..."
+          [(ngModel)]="coupon.description"
+        />
+        <br />
+        <label style="font-style: italic">Enter coupon start date : </label>
+
+        <input
+          matInput
+          placeholder="start date"
+          type="date"
+          [(ngModel)]="coupon.startDate"
+        />
+        <br />
+        <label style="font-style: italic">Enter coupon end date : </label>
+
+        <input
+          matInput
+          placeholder="end date"
+          type="date"
+          [(ngModel)]="coupon.endDate"
+        />
+        <br />
+        <label style="font-style: italic">Enter coupon price : </label>
+
+        <input
+          matInput
+          placeholder="price..."
+          type="number"
+          [(ngModel)]="coupon.price"
+        />
+        <br />
+        <label label style="font-style: italic"> Enter coupon amount : </label>
+
+        <input
+          matInput
+          placeholder="amount..."
+          type="number"
+          [(ngModel)]="coupon.amount"
+        />
+        <br />
+        <label label style="font-style: italic">
+          Enter coupon category :
+        </label>
+
+        <input
+          matInput
+          placeholder="FOOD, ELECTRICITY, SPORT, HOTEL"
+          [(ngModel)]="coupon.categoryId"
+        />
+        <br />
+        <label label style="font-style: italic"> Enter coupon image : </label>
+        <input matInput placeholder="image" [(ngModel)]="coupon.image" />
+        <br />
+        <label label style="font-style: italic"> Enter coupon id : </label>
+        <input matInput placeholder="coupon id" [(ngModel)]="couponId" />
+        <br>
+        <div class="viweToClient">  {{ messageCompanyUpdateCoupon }}</div> 
+        <hr />
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="updateCoupon()"
+          style="font-style: italic"
+        >
+          update coupon
+        </button>
+        <br />
+      </div>
+      <br />
+      <br />
+      <div class="delete_Coupon">
+        <h3 style="font-style: italic">delete coupon</h3>
+        <label style="font-style: italic"
+          >Enter your coupon id to delete :
+        </label>
+        <input matInput placeholder="coupon id " [(ngModel)]="couponId" />
+        <br>
+        <div class="viweToClient">  {{ messageCompanyDeleteCoupon }}</div> 
+        <hr />
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="deleteCoupon()"
+          style="font-style: italic"
+        >
+          delete coupon
+        </button>
+        <br />
+      </div>
+      <br />
+      <div class="All_Coupons">
+        <h3 style="font-style: italic">All coupons system</h3>
+        <table>
+          <caption>
+            <h3 style="font-style: italic">coupons</h3>
+          </caption>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>title</th>
+              <th>description</th>
+              <th>startDate</th>
+              <th>endDate</th>
+              <th>price</th>
+              <th>amount</th>
+              <th>category</th>
+              <th>image</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let c of coupons">
+              <td>{{ c.id }}</td>
+              <td>{{ c.title }}</td>
+              <td>{{ c.description }}</td>
+              <td>{{ c.startDate }}</td>
+              <td>{{ c.price }}</td>
+              <td>{{ c.amount }}</td>
+              <td>{{ c.categoryId }}</td>
+              <td>{{ c.image }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <div class="viweToClient">  {{ messageCompanyGetAllCoupons }}</div> 
+        <hr />
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="getAllCoupons()"
+          style="font-style: italic"
+        >
+          get All coupons
+        </button>
+        <br />
+      </div>
+      <br />
+      <div class="All_Coupons_By_Price">
+        <h3 style="font-style: italic">All coupons system by max price</h3>
+        <table>
+          <caption>
+            <h3 style="font-style: italic">coupons</h3>
+          </caption>
+
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>title</th>
+              <th>description</th>
+              <th>startDate</th>
+              <th>endDate</th>
+              <th>price</th>
+              <th>amount</th>
+              <th>category</th>
+              <th>image</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let coupon of couponsPrice">
+              <td>{{ coupon.id }}</td>
+              <td>{{ coupon.title }}</td>
+              <td>{{ coupon.description }}</td>
+              <td>{{ coupon.startDate }}</td>
+              <td>{{ coupon.price }}</td>
+              <td>{{ coupon.amount }}</td>
+              <td>{{ coupon.categoryId }}</td>
+              <td>{{ coupon.image }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <br />
+        <label style="font-style: italic">Enter your max price : </label>
+        <input matInput placeholder=" max price " [(ngModel)]="maxPrice" />
+        <br>
+        <div class="viweToClient">  {{ messageMaxPrice }}</div> 
+        <hr />
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="getAllCouponsByPrice()"
+          style="font-style: italic"
+        >
+          get All coupons By Max Price
+        </button>
+        <br />
+      </div>
+      <br />
+      <div class="Company_Info">
+        <label style="font-style: italic">your company information is : </label>
+        <table>
+          <caption>
+            <h3 style="font-style: italic">company</h3>
+          </caption>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Password</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="company">
+              <td>{{ company.id }}</td>
+              <td>{{ company.name }}</td>
+              <td>{{ company.email }}</td>
+              <td>{{ company.password }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <br>
+        <div class="viweToClient">  {{ messageCompanyInfo }}</div> 
+        <hr />
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="getInfo()"
+          style="font-style: italic"
+        >
+          get company information
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <br />
+  <div *ngIf="f.customerLogIn" class="customer">
+    <div style="text-align: center; font-size: xx-large;"><h1 style="font-style: italic">customer activity</h1></div>
+    <br />
+    <div class="buyFromCustomer">
+      <h3 style="font-style: italic">buy a coupon</h3>
+      <label style="font-style: italic">Enter your coupon id to buy : </label>
+      <input matInput placeholder="coupon id " [(ngModel)]="couponIdToBuy" />
+      <br />
+      <div class="viweToClient"> {{ messageCustomerBuy }}</div> 
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="buyACoupon()"
+        style="font-style: italic"
+      >
+        buy coupon
+      </button>
+      <br />
+    </div>
+    <br />
+    <div class="All_Coupons">
+      <h3 style="font-style: italic">All my coupons</h3>
+      <table>
+        <caption>
+          <h3 style="font-style: italic">coupons</h3>
+          <br />
+          <div class="viweToClient">  {{ messageCustomerCoupons }}</div> 
+        </caption>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>title</th>
+            <th>description</th>
+            <th>startDate</th>
+            <th>endDate</th>
+            <th>price</th>
+            <th>amount</th>
+            <th>category</th>
+            <th>image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of customerCoupons">
+            <td>{{ c.id }}</td>
+            <td>{{ c.title }}</td>
+            <td>{{ c.description }}</td>
+            <td>{{ c.startDate }}</td>
+            <td>{{ c.price }}</td>
+            <td>{{ c.amount }}</td>
+            <td>{{ c.categoryId }}</td>
+            <td>{{ c.image }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="getAllMyCoupons()"
+        style="font-style: italic"
+      >
+        get all my coupons
+      </button>
+      <br />
+    </div>
+    <br />
+    <div class="coupons_category_customer">
+      <h3 style="font-style: italic">all the coupons by one category</h3>
+      <label style="font-style: italic">The coupons in the system : </label>
+      <br />
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>title</th>
+            <th>description</th>
+            <th>startDate</th>
+            <th>endDate</th>
+            <th>price</th>
+            <th>amount</th>
+            <th>category</th>
+            <th>image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let coupon of couponsOfCustomerByCategory">
+            <td>{{ coupon.id }}</td>
+            <td>{{ coupon.title }}</td>
+            <td>{{ coupon.description }}</td>
+            <td>{{ coupon.startDate }}</td>
+            <td>{{ coupon.price }}</td>
+            <td>{{ coupon.amount }}</td>
+            <td>{{ coupon.categoryId }}</td>
+            <td>{{ coupon.image }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="viweToClient">{{ messageCustomerCouponsCategory }}</div>
+      <br />
+      <label label style="font-style: italic"> Enter coupon category : </label>
+      <input
+        matInput
+        placeholder="FOOD, ELECTRICITY, SPORT, HOTEL"
+        [(ngModel)]="couponCategoryCustomer"
+      />
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="getAllCouponsByCategoryOfClient()"
+        style="font-style: italic"
+      >
+        get all coupons category
+      </button>
+      <br />
+    </div>
+    <br />
+    <div class="coupons_max_price_customer">
+      <h3 style="font-style: italic">all the coupons by one max price</h3>
+      <label style="font-style: italic">The coupons in the system : </label>
+      <br />
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>description</th>
+            <th>startDate</th>
+            <th>endDate</th>
+            <th>price</th>
+            <th>amount</th>
+            <th>category</th>
+            <th>image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let coupon of couponsOfCustomerByMaxPrice">
+            <td>{{ coupon.id }}</td>
+            <td>{{ coupon.title }}</td>
+            <td>{{ coupon.description }}</td>
+            <td>{{ coupon.startDate }}</td>
+            <td>{{ coupon.price }}</td>
+            <td>{{ coupon.amount }}</td>
+            <td>{{ coupon.categoryId }}</td>
+            <td>{{ coupon.image }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="viweToClient">
+        {{ messageCustomerCouponsByMaxPrice }}
+      </div>
+      <br />
+      <label label style="font-style: italic"> Enter coupon max price : </label>
+      <input
+        matInput
+        placeholder="max price "
+        [(ngModel)]="couponMaxPriceCustomer"
+      />
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="getAllCouponsByPriceOfClient()"
+        style="font-style: italic"
+      >
+        get all coupons
+      </button>
+      <br />
+    </div>
+    <br />
+    <div class="Customer_Info">
+      <label style="font-style: italic">your customer information is : </label>
+      <br />
+      <div class="viweToClient"> {{ messageCustomerInfo }}</div>
+      <table>
+        <caption>
+          <h3 style="font-style: italic">customer</h3>
+        </caption>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>firstName</th>
+            <th>lastName</th>
+            <th>Email</th>
+            <th>Password</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="customerInformation">
+            <td>{{ customerInformation.id }}</td>
+            <td>{{ customerInformation.firstName }}</td>
+            <td>{{ customerInformation.lastName }}</td>
+            <td>{{ customerInformation.email }}</td>
+            <td>{{ customerInformation.password }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="getInformationOfCustomer()"
+        style="font-style: italic"
+      >
+        get customer information
+      </button>
+    </div>
+    <br />
+    <div class="all_Coupons_customer">
+      <h3 style="font-style: italic">all the coupons system</h3>
+      <label style="font-style: italic">The coupons in the system : </label>
+      <br />
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>title</th>
+            <th>description</th>
+            <th>startDate</th>
+            <th>endDate</th>
+            <th>price</th>
+            <th>amount</th>
+            <th>category</th>
+            <th>image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let coupon of allCouponsSystemToClient">
+            <td>{{ coupon.id }}</td>
+            <td>{{ coupon.title }}</td>
+            <td>{{ coupon.description }}</td>
+            <td>{{ coupon.startDate }}</td>
+            <td>{{ coupon.price }}</td>
+            <td>{{ coupon.amount }}</td>
+            <td>{{ coupon.categoryId }}</td>
+            <td>{{ coupon.image }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <div class="viweToClient">{{ messageCustomerAllCoupons }}</div>
+      <br />
+      <hr />
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        (click)="getAllCouponsSystem()"
+        style="font-style: italic"
+      >
+        get all coupons
+      </button>
+      <br />
+    </div>
+  </div>
+</div>

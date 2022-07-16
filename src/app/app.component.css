@@ -1,0 +1,19 @@
+section {
+  display: grid;
+  grid-template-rows: 10% 90%;
+  grid-template-columns: 15% 85%;
+  height: 100%;
+  box-sizing: border-box;
+  
+}
+
+header {
+  grid-column: 1/3;
+  grid-row: 1/2;
+
+}
+
+main {
+  grid-column: 1/3;
+ 
+}
